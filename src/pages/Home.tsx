@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ShoppingCart, Search, Heart } from 'lucide-react';
+import { Search, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { useCart } from '@/contexts/CartContext';
 import { animals } from '@/data/animals';
 import { useState } from 'react';
+import Header from '@/components/Header';
 
 const Home = () => {
-  const { cart } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
@@ -39,29 +38,7 @@ const Home = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background">
-        {/* Header */}
-        <header className="border-b">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <Link to="/" className="text-2xl font-bold text-primary">
-                🐾 Djurshoppen
-              </Link>
-              
-              <div className="flex items-center gap-4">
-                <Button variant="ghost" asChild>
-                  <Link to="/varukorg" className="relative">
-                    <ShoppingCart className="w-5 h-5" />
-                    {cart.itemCount > 0 && (
-                      <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 text-xs">
-                        {cart.itemCount}
-                      </Badge>
-                    )}
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </header>
+        <Header />
 
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-primary/5 to-primary/10 py-16">

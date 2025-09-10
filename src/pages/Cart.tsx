@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useCart } from '@/contexts/CartContext';
 import { animals } from '@/data/animals';
 import { AnimalSize } from '@/types/animal';
+import Header from '@/components/Header';
 
 const Cart = () => {
   const { cart, removeItem, updateQuantity, updateSize, clearCart } = useCart();
@@ -44,8 +45,11 @@ const Cart = () => {
           <meta name="description" content="Din varukorg är tom. Utforska vårt sortiment av djur och hitta ditt perfekta sällskapsdjur." />
         </Helmet>
 
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center py-16">
+        <div className="min-h-screen bg-background">
+          <Header />
+          
+          <div className="container mx-auto px-4 py-8">
+            <div className="text-center py-16">
             <ShoppingBag className="w-24 h-24 mx-auto mb-6 text-muted-foreground" />
             <h1 className="text-3xl font-bold mb-4">Din varukorg är tom</h1>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
@@ -57,6 +61,7 @@ const Cart = () => {
                 Börja handla
               </Link>
             </Button>
+            </div>
           </div>
         </div>
       </>
@@ -70,7 +75,10 @@ const Cart = () => {
         <meta name="description" content="Granska din varukorg och slutför ditt köp av djur från Djurshoppen." />
       </Helmet>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="min-h-screen bg-background">
+        <Header />
+        
+        <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -266,6 +274,7 @@ const Cart = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
         </div>
       </div>
     </>
